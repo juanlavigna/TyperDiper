@@ -30,9 +30,17 @@ function randomWord (){
     return words[randomNumber()]
 }
 
-let palabraAleatoriaH1 = document.querySelector("h1");
+let h1 = document.querySelector("h1");
+let input = document.querySelector("input")
+let palabraAleatoria = randomWord()
+let palabraIngresada = "";
 
-palabraAleatoriaH1.textContent = randomWord()
+input.addEventListener("keydown", function(e){
+    palabraIngresada += e.key;
+})
+
+h1.textContent = randomWord();
+
 
 function time (){
 
