@@ -27,5 +27,5 @@ function randomNumber () {
 }
 
 function randomWord () {
-
+    return words[randomNumber()]
 }
