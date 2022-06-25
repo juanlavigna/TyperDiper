@@ -18,4 +18,14 @@ const words = [
     'zephyr',
     'funky',
     'chili'
-  ];
+];
+
+let amount = words.length
+
+function randomNumber () {
+    return Math.floor(Math.random()*amount)
+}
+
+function randomWord () {
+
+}
