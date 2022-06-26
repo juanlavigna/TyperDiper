@@ -17,39 +17,49 @@ const words = [
     'dylan',
     'zephyr',
     'funky',
-    'chili'
+    'chili',
+    'fideo',
+    'electricista',
+    'atardecer'
 ];
 
-let amount = words.length
-
-function randomNumber (){
-    return Math.floor(Math.random()*amount)
-}
-
-function randomWord (){
-    return words[randomNumber()]
-}
-
-let h1 = document.querySelector("h1");
+let h1 = document.querySelector("#randomWord")
 let input = document.querySelector("input")
+
+function randomWord(){
+    return words[Math.floor(Math.random()*(words.length))]
+}
+
 let palabraAleatoria = randomWord()
-let palabraIngresada = "";
-
-input.addEventListener("keydown", function(e){
-    palabraIngresada += e.key;
-})
-
-h1.textContent = randomWord();
-
-
-function time (){
-
-}
-
-function score (){
-
-}
+let time = 10
+let score = 0
 
 function addToDOM (){
-
+    h1.textContent = palabraAleatoria
 }
+addToDOM();
+
+let palabraIngresada = "";
+
+input.addEventListener("keypress", function(e){
+    palabraIngresada += e.key;
+    let compare = () => palabraAleatoria === palabraIngresada;
+    if(compare()){
+        time += 3
+        palabraAleatoria = randomWord()
+        palabraIngresada = ""
+        addToDOM()
+        input.value = null
+    }
+})
+
+function actualizarTiempo(){}
+
+
+
+
+
+
+
+
+
