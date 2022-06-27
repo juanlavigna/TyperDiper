@@ -25,23 +25,23 @@ const words = [
 
 let h1 = document.querySelector("#randomWord")
 let input = document.querySelector("input")
+let timeHTML = document.querySelector("#timeSpan")
 
 function randomWord(){
     return words[Math.floor(Math.random()*(words.length))]
 }
 
 let palabraAleatoria = randomWord()
-let time = 10
-let score = 0
 
 function addToDOM (){
     h1.textContent = palabraAleatoria
 }
 addToDOM();
 
+
 let palabraIngresada = "";
 
-input.addEventListener("keypress", function(e){
+input.addEventListener("keyup", function(e){
     palabraIngresada += e.key;
     let compare = () => palabraAleatoria === palabraIngresada;
     if(compare()){
@@ -53,7 +53,26 @@ input.addEventListener("keypress", function(e){
     }
 })
 
-function actualizarTiempo(){}
+let time = 10
+
+// function actualizarTiempo(){
+//     time--;
+//     timeHTML.textContent = time
+//     if (time === 0) {
+//     clearInterval(timeInterval);
+//     }
+// }   
+
+let timeInterval = setInterval(function(){
+    time--;
+    timeHTML.textContent = time;
+    if (time === 0) {
+        clearInterval(timeInterval);
+        }
+},1000)
+
+let score = 0
+
 
 
 
